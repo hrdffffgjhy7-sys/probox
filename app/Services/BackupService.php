@@ -38,7 +38,7 @@ class BackupService
             $filename = $base.'.sql';
             $path = $dir.DIRECTORY_SEPARATOR.$filename;
             $this->dumpMySql($path);
-        } else {
+        } elseif ($driver === 'sqlite') {
             $filename = $base.'.sqlite';
             $path = $dir.DIRECTORY_SEPARATOR.$filename;
             $source = config('database.connections.sqlite.database');
@@ -46,6 +46,10 @@ class BackupService
                 throw new RuntimeException(__('ui.database_file_missing'));
             }
             File::copy($source, $path);
+        } else {
+            $filename = $base.'.json';
+            $path = $dir.DIRECTORY_SEPARATOR.$filename;
+            File::put($path, $this->exportJson());
         }
 
         $size = File::size($path);
@@ -160,7 +164,11 @@ class BackupService
         }
 
         $driver = config('database.default');
-        DB::statement($driver === 'mysql' ? 'SET FOREIGN_KEY_CHECKS=0' : 'PRAGMA foreign_keys=OFF');
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys=OFF');
+        }
 
         try {
             DB::transaction(function () use ($data, $driver) {
@@ -175,7 +183,11 @@ class BackupService
                 }
             });
         } finally {
-            DB::statement($driver === 'mysql' ? 'SET FOREIGN_KEY_CHECKS=1' : 'PRAGMA foreign_keys=ON');
+            if ($driver === 'mysql') {
+                DB::statement('SET FOREIGN_KEY_CHECKS=1');
+            } elseif ($driver === 'sqlite') {
+                DB::statement('PRAGMA foreign_keys=ON');
+            }
         }
     }
 
