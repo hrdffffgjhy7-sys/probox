@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'dashboard.view' => 'Dashboard',
+    'suppliers.view' => 'View suppliers',
+    'suppliers.manage' => 'Create / edit suppliers',
+    'suppliers.delete' => 'Archive / restore suppliers',
+    'agencies.manage' => 'Manage agencies',
+    'salesmen.manage' => 'Manage salesmen',
+    'purchases.view' => 'View purchases',
+    'purchases.manage' => 'Create / edit purchases',
+    'payments.view' => 'View payments',
+    'payments.manage' => 'Create / edit payments',
+    'ledger.view' => 'View supplier khata',
+    'receivables.view' => 'View receivables',
+    'payables.view' => 'View payables',
+    'expenses.view' => 'View expenses',
+    'expenses.manage' => 'Manage expenses',
+    'products.manage' => 'Manage products',
+    'reports.view' => 'View reports',
+    'backups.manage' => 'Backup and restore',
+    'users.manage' => 'Manage users and roles',
+    'settings.manage' => 'Manage settings',
+    'audit.view' => 'View audit logs',
+];

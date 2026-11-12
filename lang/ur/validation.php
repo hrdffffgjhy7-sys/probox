@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'required' => ':attribute لازمی ہے۔',
+    'email' => ':attribute درست ای میل ہونا چاہیے۔',
+    'unique' => ':attribute پہلے سے موجود ہے۔',
+    'confirmed' => ':attribute کی تصدیق مطابق نہیں۔',
+    'numeric' => ':attribute ایک عدد ہونا چاہیے۔',
+    'integer' => ':attribute ایک عدد ہونا چاہیے۔',
+    'date' => ':attribute درست تاریخ نہیں۔',
+    'in' => 'منتخب کردہ :attribute غلط ہے۔',
+    'exists' => 'منتخب کردہ :attribute موجود نہیں۔',
+    'boolean' => ':attribute درست یا غلط ہونا چاہیے۔',
+    'image' => ':attribute ایک تصویر ہونی چاہیے۔',
+    'mimes' => ':attribute کی قسم :values ہونی چاہیے۔',
+    'different' => ':attribute مختلف ہونا چاہیے۔',
+    'current_password' => 'موجودہ پاس ورڈ غلط ہے۔',
+    'min' => [
+        'string' => ':attribute کم از کم :min حروف کا ہونا چاہیے۔',
+        'numeric' => ':attribute کم از کم :min ہونا چاہیے۔',
+        'file' => ':attribute کم از کم :min کلو بائٹ کا ہونا چاہیے۔',
+        'array' => ':attribute میں کم از کم :min اشیاء ہونی چاہیے۔',
+    ],
+    'max' => [
+        'string' => ':attribute :max حروف سے زیادہ نہیں ہو سکتا۔',
+        'numeric' => ':attribute :max سے زیادہ نہیں ہو سکتا۔',
+        'file' => ':attribute :max کلو بائٹ سے زیادہ نہیں ہو سکتا۔',
+        'array' => ':attribute میں :max سے زیادہ اشیاء نہیں ہو سکتیں۔',
+    ],
+    'attributes' => [
+        'name' => 'نام',
+        'username' => 'صارف نام',
+        'email' => 'ای میل',
+        'password' => 'پاس ورڈ',
+        'phone' => 'فون',
+        'amount' => 'رقم',
+        'date' => 'تاریخ',
+        'supplier_id' => 'سپلائر',
+        'invoice_number' => 'بل نمبر',
+    ],
+];
